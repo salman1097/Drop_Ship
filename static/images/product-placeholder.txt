@@ -1,0 +1,36 @@
+# Instructions for Creating product-placeholder.jpg
+
+Since we can't directly create a binary image file through this interface, here are the specifications for creating a simple product placeholder image:
+
+## Image Specifications
+- Dimensions: 600x600px
+- Background Color: Light gray (#F5F5F5)
+- Icon Color: Dark gray (#666666)
+- Format: JPG with medium compression (quality around 80%)
+
+## Design Reference
+Create a minimal image with:
+1. Solid light gray background (#F5F5F5)
+2. A simple image/photo icon in the center (approximately 200x200px area)
+3. The icon should be a minimalist representation of a photo or image frame
+4. No text or other elements
+
+## Tools for Creation
+You can use any of these tools to create the image:
+- Adobe Photoshop or Illustrator
+- GIMP (free alternative to Photoshop)
+- Figma or Sketch (for design)
+- Canva (for simple web-based design)
+- Or any other image editing software
+
+## Alternative Quick Solution
+If you prefer a quick solution, you can use a free placeholder image service like:
+- https://placeholder.com/ 
+- https://placehold.co/
+- https://dummyimage.com/
+
+Example URL that will generate a placeholder:
+https://placehold.co/600x600/f5f5f5/666666?text=
+
+Save the final image as product-placeholder.jpg in the static/images directory.
+

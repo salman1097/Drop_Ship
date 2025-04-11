@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - Drop Shipping Catalog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>Admin Panel</h1>
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            Add New Product
+        </button>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.fields.Name }}</td>
+                        <td>{{ product.fields.Category }}</td>
+                        <td>${{ product.fields.Price }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

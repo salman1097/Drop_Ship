@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Drop Shipping Catalog{% endblock %}
+
+{% block hero %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>New Arrivals</h1>
+        <button class="cta-button" onclick="window.location.href='/'">Shop Now</button>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<!-- Product Grid -->
+<section class="product-grid">
+    {% for product in products %}
+    <div class="product-card">
+        {% if product.fields.get("Image") %}
+        <img src="{{ product.fields.get('Image') }}" alt="{{ product.fields.get('Name', 'Product Image') }}">
+        {% else %}
+        <img src="{{ url_for('static', path='/images/product-placeholder.svg') }}" alt="{{ product.fields.get('Name', 'Product Image') }}">
+        {% endif %}
+        <h3>{{ product.fields.get("Name", "No Name") }}</h3>
+        <p>${{ product.fields.get("Price", "N/A") }}</p>
+        <div class="quick-actions">
+            <button onclick="window.location.href='/product/{{ product.id }}'">Quick View</button>
+            <button>Add to Bag</button>
+        </div>
+    </div>
+    {% else %}
+    <div class="no-products">
+        <p>No products available. Please add some products to your catalog.</p>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>Fast Shipping</h3>
+            <p>Free delivery on orders over $100</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-undo"></i>
+            <h3>Easy Returns</h3>
+            <p>30-day hassle-free returns</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-lock"></i>
+            <h3>Secure Checkout</h3>
+            <p>Safe & protected payment processing</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.fields.get("Name", "Product") }} - Drop Shipping Catalog{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <span class="breadcrumb-item"><a href="/">Home</a></span>
+    <span class="breadcrumb-item">{{ product.fields.get("Name", "Product") }}</span>
+</div>
+
+<div class="product-detail">
+    <div class="product-image">
+        {% if product.fields.get("Image") %}
+        <img src="{{ product.fields.get("Image") }}" alt="{{ product.fields.get("Name", "Product Image") }}">
+        {% else %}
+        <div class="image-placeholder">
+            <img src="{{ url_for('static', path='/images/product-placeholder.svg') }}" alt="Product Image Placeholder">
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="product-info">
+        <h1>{{ product.fields.get("Name", "Untitled Product") }}</h1>
+        
+        {% if product.fields.get("Category") %}
+        <div class="category">
+            {{ product.fields.get("Category") }}
+        </div>
+        {% endif %}
+
+        <div class="price">
+            ${{ product.fields.get("Price", "0.00") }}
+        </div>
+
+        <div class="actions">
+            <button class="add-to-bag">Add to Bag</button>
+            <button class="secondary-button">
+                <i class="fas fa-heart"></i> Add to Wishlist
+            </button>
+        </div>
+
+        {% if product.fields.get("Description") %}
+        <div class="description">
+            <h4>Description</h4>
+            <p>{{ product.fields.get("Description") }}</p>
+        </div>
+        {% endif %}
+
+        {% if product.fields.get("Specifications") %}
+        <div class="specifications">
+            <h4>Specifications</h4>
+            <ul>
+                {% for spec in product.fields.get("Specifications", "").split("\n") %}
+                <li>{{ spec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/">
+                <i class="fas fa-arrow-left"></i> Back to Catalog
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
