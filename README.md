@@ -2,6 +2,10 @@
 
 A modern e-commerce catalog for drop shipping products built with FastAPI and Airtable.
 
+## Repository Information
+
+This repository (Drop_Ship) contains a complete e-commerce catalog solution with modern UI design.
+
 ## Features
 
 - Clean, modern UI inspired by Lululemon's design
@@ -66,4 +70,3 @@ All product content is managed through Airtable. Log in to your Airtable account
 ## License
 
 MIT
-
